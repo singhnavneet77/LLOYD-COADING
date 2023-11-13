@@ -22,6 +22,15 @@ for(int i=1;i<n;i++){
 }
 }
 
+void deletion(struct node *p){
+    while(p->next!=NULL){
+        p=p->next;
+    }
+    p->prev->next=NULL;
+    p->prev=NULL;
+    free(p);
+}
+
 void display(struct node *p){
     while(p!=NULL){
         printf("%d ",p->data);
@@ -39,7 +48,7 @@ int count(struct node*p){
 }
 
 int main(){
-    int n,value,index;
+    int n,value,index,num;
     printf("Enter the size:");
     scanf("%d",&n);
     int arr[n];
@@ -49,8 +58,12 @@ int main(){
     create(arr,n);
     display(head);
     printf("\n");
+    printf("Enter the number which you want to delete:");
+    scanf("%d",&num);
+    deletion(head);
+    display(head);
+    printf("\n");
     int c=count(head);
     printf("Number of elemnt is : %d",c);
     printf("\n");
-
 }

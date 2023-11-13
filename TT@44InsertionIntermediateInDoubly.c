@@ -4,14 +4,14 @@ struct node{
     int data;
     struct node *next;
     struct node *prev;
-}*first=NULL;
+}*head=NULL;
 
 void create(int arr[],int n){
   struct node *temp,*last;
-  first=(struct node*)malloc(sizeof(struct node*));
-  first->data=arr[0];
-  first->prev=NULL;
-  last=first;
+  head=(struct node*)malloc(sizeof(struct node*));
+  head->data=arr[0];
+  head->prev=NULL;
+  last=head;
 for(int i=1;i<n;i++){
  temp=(struct node*)malloc(sizeof(struct node));
  temp->data=arr[i];
@@ -61,16 +61,16 @@ int main(){
     for(int i=0;i<n;i++)
     scanf("%d",&arr[i]);
     create(arr,n);
-    display(first);
+    display(head);
     printf("\n");
     printf("Enter the Index whiere you want to insert:");
     scanf("%d",&index);
     printf("Enter your value:");
     scanf("%d",&num);
-    IntermediateInsertion(first,num,index);
-    display(first);
+    IntermediateInsertion(head,num,index);
+    display(head);
     printf("\n");
-    int c=count(first);
+    int c=count(head);
     printf("Number of elemnt is : %d",c);
     printf("\n");
 }
